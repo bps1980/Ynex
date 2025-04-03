@@ -1,0 +1,371 @@
+from django.shortcuts import render
+from django.http import JsonResponse
+import random
+from .models import Sale
+from django.db.models.functions import TruncMonth
+from django.db.models import Sum
+
+# Create your views here.
+
+def aboutus (request): 
+    return render(request, 'aboutus.html')
+def accordionscollpase (request): 
+    return render(request, 'accordionscollpase.html')
+def addproducts (request): 
+    return render(request, 'addproducts.html')
+def alerts (request): 
+    return render(request, 'alerts.html')
+def apexareacharts (request): 
+    return render(request, 'apexareacharts.html')
+def apexbarcharts (request): 
+    return render(request, 'apexbarcharts.html')
+def apexboxplotcharts (request): 
+    return render(request, 'apexboxplotcharts.html')
+def apexbubblecharts (request): 
+    return render(request, 'apexbubblecharts.html')
+def apexcandlestickcharts (request): 
+    return render(request, 'apexcandlestickcharts.html')
+def apexcolumncharts (request): 
+    return render(request, 'apexcolumncharts.html')
+def apexheatmapcharts (request): 
+    return render(request, 'apexheatmapcharts.html')
+def apexlinecharts (request): 
+    return render(request, 'apexlinecharts.html')
+def apexmixedcharts (request): 
+    return render(request, 'apexmixedcharts.html')
+def apexpiecharts (request): 
+    return render(request, 'apexpiecharts.html')
+def apexpolarareacharts (request): 
+    return render(request, 'apexpolarareacharts.html')
+def apexradarcharts (request): 
+    return render(request, 'apexradarcharts.html')
+def apexradialbarcharts (request): 
+    return render(request, 'apexradialbarcharts.html')
+def apexrangeareacharts (request): 
+    return render(request, 'apexrangeareacharts.html')
+def apexscattercharts (request): 
+    return render(request, 'apexscattercharts.html')
+def apextimelinecharts (request): 
+    return render(request, 'apextimelinecharts.html')
+def apextreemapcharts (request): 
+    return render(request, 'apextreemapcharts.html')
+def avatars (request): 
+    return render(request, 'avatars.html')
+def badge (request): 
+    return render(request, 'badge.html')
+def blog (request): 
+    return render(request, 'blog.html')
+def blogcreate (request): 
+    return render(request, 'blogcreate.html')
+def blogdetails (request): 
+    return render(request, 'blogdetails.html')
+def borders (request): 
+    return render(request, 'borders.html')
+def breadcrumb (request): 
+    return render(request, 'breadcrumb.html')
+def breakpoints (request): 
+    return render(request, 'breakpoints.html')
+def buttongroup (request): 
+    return render(request, 'buttongroup.html')
+def buttons (request): 
+    return render(request, 'buttons.html')
+def cards (request): 
+    return render(request, 'cards.html')
+def carousel (request): 
+    return render(request, 'carousel.html')
+def cart (request): 
+    return render(request, 'cart.html')
+def chartjscharts (request): 
+    return render(request, 'chartjscharts.html')
+def chat (request): 
+    return render(request, 'chat.html')
+def checkout (request): 
+    return render(request, 'checkout.html')
+def colors (request): 
+    return render(request, 'colors.html')
+def columns (request): 
+    return render(request, 'columns.html')
+def comingsoon (request): 
+    return render(request, 'comingsoon.html')
+def contacts (request): 
+    return render(request, 'contacts.html')
+def contactus (request): 
+    return render(request, 'contactus.html')
+def createpasswordbasic (request): 
+    return render(request, 'createpasswordbasic.html')
+def createpasswordcover (request): 
+    return render(request, 'createpasswordcover.html')
+def crmcompanies (request): 
+    return render(request, 'crmcompanies.html')
+def crmcontacts (request): 
+    return render(request, 'crmcontacts.html')
+def crmdeals (request): 
+    return render(request, 'crmdeals.html')
+def crmleads (request): 
+    return render(request, 'crmleads.html')
+def cryptobuysell (request): 
+    return render(request, 'cryptobuysell.html')
+def cryptocurrencyexchange (request): 
+    return render(request, 'cryptocurrencyexchange.html')
+def cryptomarketcap (request): 
+    return render(request, 'cryptomarketcap.html')
+def cryptotransactions (request): 
+    return render(request, 'cryptotransactions.html')
+def cryptowallet (request): 
+    return render(request, 'cryptowallet.html')
+def cssgrid (request): 
+    return render(request, 'cssgrid.html')
+def datatables (request): 
+    return render(request, 'datatables.html')
+def draggablecards (request): 
+    return render(request, 'draggablecards.html')
+def dropdowns (request): 
+    return render(request, 'dropdowns.html')
+def echarts (request): 
+    return render(request, 'echarts.html')
+def editproducts (request): 
+    return render(request, 'editproducts.html')
+def emptypage (request): 
+    return render(request, 'emptypage.html')
+def error401 (request): 
+    return render(request, 'error401.html')
+def error404 (request): 
+    return render(request, 'error404.html')
+def error500 (request): 
+    return render(request, 'error500.html')
+def faqs (request): 
+    return render(request, 'faqs.html')
+def filemanager (request): 
+    return render(request, 'filemanager.html')
+def flex (request): 
+    return render(request, 'flex.html')
+def floatinglabels (request): 
+    return render(request, 'floatinglabels.html')
+def formcheckradios (request): 
+    return render(request, 'formcheckradios.html')
+def formcolorpickers (request): 
+    return render(request, 'formcolorpickers.html')
+def formdateTimepickers (request): 
+    return render(request, 'formdateTimepickers.html')
+def formfileuploads (request): 
+    return render(request, 'formfileuploads.html')
+def forminputgroup (request): 
+    return render(request, 'forminputgroup.html')
+def forminputmasks (request): 
+    return render(request, 'forminputmasks.html')
+def forminputs (request): 
+    return render(request, 'forminputs.html')
+def formlayout (request): 
+    return render(request, 'formlayout.html')
+def formrange (request): 
+    return render(request, 'formrange.html')
+def formselect (request): 
+    return render(request, 'formselect.html')
+def formselect2 (request): 
+    return render(request, 'formselect2.html')
+def formvalidation (request): 
+    return render(request, 'formvalidation.html')
+def fullcalendar (request): 
+    return render(request, 'fullcalendar.html')
+def gallery (request): 
+    return render(request, 'gallery.html')
+def googlemaps (request): 
+    return render(request, 'googlemaps.html')
+def gridtables (request): 
+    return render(request, 'gridtables.html')
+def gutters (request): 
+    return render(request, 'gutters.html')
+def helpers (request): 
+    return render(request, 'helpers.html')
+def icons (request): 
+    return render(request, 'icons.html')
+def imagesfigures (request): 
+    return render(request, 'imagesfigures.html')
+def index (request): 
+    return render(request, 'index.html')
+def index1 (request): 
+    return render(request, 'index1.html')
+def index2 (request): 
+    return render(request, 'index2.html')
+def index3 (request): 
+    return render(request, 'index3.html')
+def index4 (request): 
+    return render(request, 'index4.html')
+def index5 (request): 
+    return render(request, 'index5.html')
+def index6 (request): 
+    return render(request, 'index6.html')
+def index7 (request): 
+    return render(request, 'index7.html')
+def index8 (request): 
+    return render(request, 'index8.html')
+def index9 (request): 
+    return render(request, 'index9.html')
+def index10 (request): 
+    return render(request, 'index10.html')
+def index11 (request): 
+    return render(request, 'index11.html')
+def invoicecreate (request): 
+    return render(request, 'invoicecreate.html')
+def invoicedetails (request): 
+    return render(request, 'invoicedetails.html')
+def invoicelist (request): 
+    return render(request, 'invoicelist.html')
+def jobcandidatedetails (request): 
+    return render(request, 'jobcandidatedetails.html')
+def jobcandidatesearch (request): 
+    return render(request, 'jobcandidatesearch.html')
+def jobcompanysearch (request): 
+    return render(request, 'jobcompanysearch.html')
+def jobdetails (request): 
+    return render(request, 'jobdetails.html')
+def jobpost (request): 
+    return render(request, 'jobpost.html')
+def jobsearch (request): 
+    return render(request, 'jobsearch.html')
+def jobslist (request): 
+    return render(request, 'jobslist.html')
+def landing (request): 
+    return render(request, 'landing.html')
+def landingjobs (request): 
+    return render(request, 'landingjobs.html')
+def leafletmaps (request): 
+    return render(request, 'leafletmaps.html')
+def listgroup (request): 
+    return render(request, 'listgroup.html')
+def lockscreenbasic (request): 
+    return render(request, 'lockscreenbasic.html')
+def lockscreencover (request): 
+    return render(request, 'lockscreencover.html')
+def mail (request): 
+    return render(request, 'mail.html')
+def mailsettings (request): 
+    return render(request, 'mailsettings.html')
+def modalscloses (request): 
+    return render(request, 'modalscloses.html')
+def more (request): 
+    return render(request, 'more.html')
+def navbar (request): 
+    return render(request, 'navbar.html')
+def navstabs (request): 
+    return render(request, 'navstabs.html')
+def nftcreate (request): 
+    return render(request, 'nftcreate.html')
+def nftdetails (request): 
+    return render(request, 'nftdetails.html')
+def nftliveauction (request): 
+    return render(request, 'nftliveauction.html')
+def nftmarketplace (request): 
+    return render(request, 'nftmarketplace.html')
+def nftwalletintegration (request): 
+    return render(request, 'nftwalletintegration.html')
+def notifications (request): 
+    return render(request, 'notifications.html')
+def objectfit (request): 
+    return render(request, 'objectfit.html')
+def offcanvas (request): 
+    return render(request, 'offcanvas.html')
+def orderdetails (request): 
+    return render(request, 'orderdetails.html')
+def orders (request): 
+    return render(request, 'orders.html')
+def pagination (request): 
+    return render(request, 'pagination.html')
+def placeholders (request): 
+    return render(request, 'placeholders.html')
+def popovers (request): 
+    return render(request, 'popovers.html')
+def position (request): 
+    return render(request, 'position.html')
+def pricing (request): 
+    return render(request, 'pricing.html')
+def productdetails (request): 
+    return render(request, 'productdetails.html')
+def products (request): 
+    return render(request, 'products.html')
+def productslist (request): 
+    return render(request, 'productslist.html')
+def profile (request): 
+    return render(request, 'profile.html')
+def progress (request): 
+    return render(request, 'progress.html')
+def projectscreate (request): 
+    return render(request, 'projectscreate.html')
+def projectslist (request): 
+    return render(request, 'projectslist.html')
+def projectsoverview (request): 
+    return render(request, 'projectsoverview.html')
+def quilleditor (request): 
+    return render(request, 'quilleditor.html')
+def ratings (request): 
+    return render(request, 'ratings.html')
+def resetpasswordbasic (request): 
+    return render(request, 'resetpasswordbasic.html')
+def resetpasswordcover (request): 
+    return render(request, 'resetpasswordcover.html')
+def reviews (request): 
+    return render(request, 'reviews.html')
+def sales_data(request):
+    queryset = (
+        Sale.objects
+        .annotate(month=TruncMonth('date'))
+        .values('month')
+        .annotate(total=Sum('amount'))
+        .order_by('month')
+    )
+
+    labels = [entry['month'].strftime('%b') for entry in queryset]
+    data = [float(entry['total']) for entry in queryset]
+
+    return JsonResponse({'labels': labels, 'data': data})
+
+def scrollspy (request): 
+    return render(request, 'scrollspy.html')
+def signinbasic (request): 
+    return render(request, 'signinbasic.html')
+def signincover (request): 
+    return render(request, 'signincover.html')
+def signupbasic (request): 
+    return render(request, 'signupbasic.html')
+def signupcover (request): 
+    return render(request, 'signupcover.html')
+def spinners (request): 
+    return render(request, 'spinners.html')
+def sweetalerts (request): 
+    return render(request, 'sweetalerts.html')
+def swiperjs (request): 
+    return render(request, 'swiperjs.html')
+def tables (request): 
+    return render(request, 'tables.html')
+def taskdetails (request): 
+    return render(request, 'taskdetails.html')
+def taskkanbanboard (request): 
+    return render(request, 'taskkanbanboard.html')
+def tasklistview (request): 
+    return render(request, 'tasklistview.html')
+def team (request): 
+    return render(request, 'team.html')
+def termsconditions (request): 
+    return render(request, 'termsconditions.html')
+def timeline (request): 
+    return render(request, 'timeline.html')
+def toasts (request): 
+    return render(request, 'toasts.html')
+def todolist (request): 
+    return render(request, 'todolist.html')
+def tooltips (request): 
+    return render(request, 'tooltips.html')
+def twostepverificationbasic (request): 
+    return render(request, 'twostepverificationbasic.html')
+def twostepverificationcover (request): 
+    return render(request, 'twostepverificationcover.html')
+def typography (request): 
+    return render(request, 'typography.html')
+def undermaintenance (request): 
+    return render(request, 'undermaintenance.html')
+def vectormaps (request): 
+    return render(request, 'vectormaps.html')
+def widgets (request): 
+    return render(request, 'widgets.html')
+def wishlist (request): 
+    return render(request, 'wishlist.html')

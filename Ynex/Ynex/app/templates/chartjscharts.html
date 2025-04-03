@@ -1,0 +1,177 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block styles %}
+
+
+        
+{% endblock %}
+
+{% block content %}
+
+                    <div class="container-fluid">
+                        
+                        <!-- Page Header -->
+                        <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
+                            <h1 class="page-title fw-semibold fs-18 mb-0">Chartjs</h1>
+                            <div class="ms-md-1 ms-0">
+                                <nav>
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item"><a href="#">Charts</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Chartjs</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Page Header Close -->
+
+                        <!-- Start::row-1 -->
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Line Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="chartjs-line" class="chartjs-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Bar Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="chartjs-bar" class="chartjs-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Pie Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="chartjs-pie" class="chartjs-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Doughnut Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="chartjs-doughnut" class="chartjs-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Mixed Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="chartjs-mixed" class="chartjs-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Polar Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="chartjs-polar" class="chartjs-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Radial Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="chartjs-radar" class="chartjs-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Scatter Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="chartjs-scatter" class="chartjs-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card custom-card">
+                                    <div class="card-header">
+                                        <div class="card-title">Chartjs Bubble Chart</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="chartjs-bubble" class="chartjs-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End::row-1 -->
+                    </div>
+{% endblock %}
+
+{% block scripts %}
+
+        <!-- Chart.js Core Library -->
+    <script src="{% static 'assets/libs/chart.js/chart.min.js' %}"></script>
+
+    <!-- Your Live Line Chart Script -->
+    <script>
+        Chart.defaults.borderColor = "rgba(142, 156, 173,0.1)";
+        Chart.defaults.color = "#8c9097";
+    
+        let myChart;
+    
+        function loadChartData() {
+            fetch("/api/sales-data/")
+                .then(res => res.json())
+                .then(chartData => {
+                    const data = {
+                        labels: chartData.labels,
+                        datasets: [{
+                            label: 'Sales',
+                            backgroundColor: 'rgb(132, 90, 223)',
+                            borderColor: 'rgb(132, 90, 223)',
+                            data: chartData.data,
+                        }]
+                    };
+    
+                    if (myChart) {
+                        myChart.data = data;
+                        myChart.update();
+                    } else {
+                        const config = {
+                            type: 'line',
+                            data: data,
+                            options: {}
+                        };
+                        myChart = new Chart(
+                            document.getElementById('chartjs-line'),
+                            config
+                        );
+                    }
+                });
+        }
+    
+        // Load initially and every 10 seconds
+        loadChartData();
+        setInterval(loadChartData, 10000);
+    </script>
+
+        <!-- Imternal Chartjs JS -->
+        <script src="{% static 'assets/js/chartjs-charts.js'%}"></script>
+
+{% endblock %}
